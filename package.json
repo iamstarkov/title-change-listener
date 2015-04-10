@@ -1,0 +1,47 @@
+{
+  "name": "title-change-listener",
+  "version": "0.0.0",
+  "description": "Listen to title changing with modern MutationObserver",
+  "main": "index.es5.js",
+  "scripts": {
+    "coverage": "istanbul cover _mocha -- --require babel/register",
+    "precoveralls": "npm run coverage",
+    "coveralls": "coveralls < coverage/lcov.info",
+    "lint": "jscs --esnext -p airbnb index.js test.js",
+    "pretest": "npm run lint",
+    "test": "mocha --require babel/register",
+    "tdd": "mocha --require babel/register --watch",
+    "precommit": "npm test",
+    "transpile": "babel index.js > index.es5.js",
+    "prepublish": "npm run transpile",
+    "postpublish": "rm *.es5.js && git push --follow-tags"
+  },
+  "devDependencies": {
+    "babel": "^5.0.0",
+    "casperjs": "^1.1.0-beta3",
+    "coveralls": "^2.11.2",
+    "husky": "^0.7.0",
+    "istanbul": "^0.3.11",
+    "jscs": "^1.12.0",
+    "mocha": "^2.2.1",
+    "mocha-casperjs": "^0.5.3",
+    "mocha-lcov-reporter": "0.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matmuchrapna/title-change-listener"
+  },
+  "keywords": [
+    "title",
+    "html",
+    "mutationobserver",
+    "casper",
+    "casperjs"
+  ],
+  "author": "Vladimir Starkov <matmuchrapna@gmail.com> (http://vstarkov.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matmuchrapna/title-change-listener/issues"
+  },
+  "homepage": "https://github.com/matmuchrapna/title-change-listener"
+}
